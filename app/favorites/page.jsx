@@ -1,10 +1,10 @@
 "use client";
 
 import UserCard from "@/components/UserCard";
-import { useFavorites } from "@/context/FavoritesContext";
+import { useFavorite } from "@/context/FavoritesContext";
 
 export default function FavoritesPage() {
-  const { favorites } = useFavorites();
+  const { favorites } = useFavorite();
 
   return (
     <section className="relative">

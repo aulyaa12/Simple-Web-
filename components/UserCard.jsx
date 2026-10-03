@@ -3,11 +3,11 @@
 import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useFavorites } from "@/context/FavoritesContext";
+import { useFavorite } from "@/context/FavoritesContext";
 import { cn } from "@/lib/utils";
 
 export default function UserCard({ user }) {
-  const { toggleFavorite, isFavorite } = useFavorites();
+  const { addFavorite, removeFavorite, isFavorite } = useFavorite();
   const favorited = isFavorite(user.id);
 
   const initials = user.name
@@ -39,7 +39,7 @@ export default function UserCard({ user }) {
           <Button
             variant={favorited ? "default" : "outline"}
             className="rounded-full"
-            onClick={() => toggleFavorite(user)}
+            onClick={() => favorited ? removeFavorite(user.id) : addFavorite(user)}
           >
             <Heart className={cn("size-4", favorited && "fill-current")} />
           </Button>

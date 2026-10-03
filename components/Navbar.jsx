@@ -1,6 +1,6 @@
 "use client";
 
-import { useFavorites } from "@/context/FavoritesContext";
+import { useFavorite } from "@/context/FavoritesContext";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useUser } from "@/context/UserContext";
@@ -18,11 +18,10 @@ const links = [
   { href: "/contact", label: "Bantuan" },
 ];
 
-
 export default function Navbar() {
   const pathname = usePathname();
   const { name, submitted } = useUser();
-  const { favorites } = useFavorites();
+  const { favorites } = useFavorite();
 
   return (
     <header className="sticky top-4 z-50 mx-auto w-full max-w-4xl px-4">

@@ -1,8 +1,7 @@
 import "./globals.css";
 
 import { UserProvider } from "@/context/UserContext";
-import { FavoritesProvider } from "@/context/FavoritesContext";
-
+import { FavoriteProvider } from "@/context/FavoritesContext";
 import localFont from "next/font/local";
 
 import Navbar from "@/components/Navbar";
@@ -34,13 +33,13 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`dark ${fontSans.variable}`}>
       <body className="flex min-h-screen flex-col bg-background text-foreground antialiased">
         <UserProvider>
-          <FavoritesProvider>
+          <FavoriteProvider>
             <Navbar />
 
             <main className="flex-1">{children}</main>
 
             <Footer />
-          </FavoritesProvider>
+          </FavoriteProvider>
         </UserProvider>
       </body>
     </html>
