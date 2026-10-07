@@ -25,6 +25,7 @@ export function middleware(request) {
       // Belum ada token -> redirect ke halaman utama
       return NextResponse.redirect(new URL("/", request.url));
     }
+  
   }
 
   return NextResponse.next(); // Lanjutkan request jika semua aman
